@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="PowerBalanceView">
+        <attr name="axisColor" format="color" />
+        <attr name="axisSize" format="integer" />
+        <attr name="backgroundColor" format="color" />
+        <attr name="barColor" format="color" />
+        <attr name="steps" format="integer" />
+        <attr name="stepBarColor" format="color" />
+        <attr name="stepBarSize" format="integer" />
+    </declare-styleable>
+</resources>
