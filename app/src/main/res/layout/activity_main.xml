@@ -1,83 +1,83 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:padding="8dp"
-    tools:context="xyz.jbonet.powerbalancesample.MainActivity">
+            xmlns:app="http://schemas.android.com/apk/res-auto"
+            xmlns:tools="http://schemas.android.com/tools"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:padding="8dp"
+            tools:context="xyz.jbonet.powerbalancesample.MainActivity">
 
     <LinearLayout
-        android:orientation="vertical"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Default"
-            android:textColor="#FF000000" />
+            android:textColor="#FF000000"/>
 
         <xyz.jbonet.powerbalanceview.PowerBalanceView
             android:id="@+id/powerBalanceView"
             android:layout_width="match_parent"
-            android:layout_height="50dp" />
+            android:layout_height="50dp"/>
+
 
         <Button
             android:id="@+id/startStopButton"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Start / STOP" />
+            android:text="Start / STOP"/>
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
             android:text="Styled + Slider"
-            android:textColor="#FF000000" />
+            android:textColor="#FF000000"/>
 
         <xyz.jbonet.powerbalanceview.PowerBalanceView
             android:id="@+id/powerBalanceView2"
             android:layout_width="match_parent"
             android:layout_height="50dp"
             app:backgroundColor="@color/colorAccent"
-            app:barColor="@color/colorPrimaryDark" />
+            app:barColor="@color/colorPrimaryDark"/>
 
         <android.support.v7.widget.AppCompatSeekBar
             android:id="@+id/seekBar"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="16dp" />
+            android:layout_marginTop="16dp"/>
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
             android:text="Custom sizes + styled bars"
-            android:textColor="#FF000000" />
+            android:textColor="#FF000000"/>
 
         <xyz.jbonet.powerbalanceview.PowerBalanceView
             android:id="@+id/powerBalanceView3"
             android:layout_width="match_parent"
             android:layout_height="50dp"
-            app:stepBarColor="#ffea00"
-            app:axisSize="30"
             app:axisColor="#00ff62"
-            app:backgroundColor="#FF000000" />
+            app:axisSize="30"
+            app:backgroundColor="#FF000000"
+            app:stepBarColor="#ffea00"/>
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
             android:text="Default style + custom steps"
-            android:textColor="#FF000000" />
+            android:textColor="#FF000000"/>
 
         <xyz.jbonet.powerbalanceview.PowerBalanceView
             android:id="@+id/powerBalanceView4"
             android:layout_width="match_parent"
             android:layout_height="50dp"
             app:steps="25"/>
-
 
     </LinearLayout>
 

@@ -35,6 +35,7 @@ public class PowerBalanceView extends View {
 
     public PowerBalanceView(Context context) {
         super(context);
+        // Empty constructor. Default when creating programmatically.
     }
 
     public PowerBalanceView(Context context, AttributeSet attributeSet) {
@@ -42,9 +43,9 @@ public class PowerBalanceView extends View {
         init(attributeSet);
     }
 
-    public PowerBalanceView(Context context, AttributeSet attrs, int defStyleAttr) {
-        super(context, attrs, defStyleAttr);
-        init(attrs);
+    public PowerBalanceView(Context context, AttributeSet attributeSet, int defStyleAttr) {
+        super(context, attributeSet, defStyleAttr);
+        init(attributeSet);
     }
 
     private void init(AttributeSet attributeSet) {
