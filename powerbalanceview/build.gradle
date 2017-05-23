@@ -1,14 +1,6 @@
-plugins {
-    id "com.jfrog.bintray" version "1.7.3"
-}
-plugins {
-    id "com.github.dcendents.android-maven" version "1.5"
-}
 apply plugin: 'com.android.library'
-apply plugin: 'com.jfrog.bintray'
-apply plugin: 'com.github.dcendents.android-maven'
 
-version = "0.1.1"
+version = "0.1.2"
 
 android {
     compileSdkVersion 25
@@ -36,75 +28,4 @@ dependencies {
         exclude group: 'com.android.support', module: 'support-annotations'
     })
     testCompile 'junit:junit:4.12'
-}
-
-
-def siteUrl = 'https://github.com/jbonet/PowerBalanceView'
-def gitUrl = 'https://github.com/jbonet/PowerBalanceView.git'
-group = 'xyz.jbonet'
-
-install {
-    repositories.mavenInstaller {
-        pom {
-            project {
-                packaging 'aar'
-
-                name 'PowerBalanceView'
-                url siteUrl
-
-                licenses {
-                    license {
-                        name 'The Apache Software License, Version 2.0'
-                        url 'http://www.apache.org/licenses/LICENSE-2.0.txt'
-                    }
-                }
-                developers {
-                    developer {
-                        id 'jbonet'
-                        name 'Javier Bonet'
-                        email 'javier@jbonet.xyz'
-                    }
-                }
-                scm {
-                    connection gitUrl
-                    developerConnection gitUrl
-                    url siteUrl
-                }
-            }
-        }
-    }
-}
-
-configurations {
-    archives {
-        extendsFrom configurations.default
-    }
-}
-
-task sourcesJar(type: Jar) {
-    from android.sourceSets.main.java.srcDirs
-    classifier = 'sources'
-}
-
-artifacts {
-    archives sourcesJar
-}
-
-
-Properties properties = new Properties()
-properties.load(project.rootProject.file('local.properties').newDataInputStream())
-
-bintray {
-    user = properties.getProperty("bintray.user")
-    key = properties.getProperty("bintray.apikey")
-
-    configurations = ['archives']
-    pkg {
-        repo = "Android"
-        name = "PowerBalanceView"
-        websiteUrl = siteUrl
-        vcsUrl = gitUrl
-        licenses = ["Apache-2.0"]
-        publish = true
-    }
 }
