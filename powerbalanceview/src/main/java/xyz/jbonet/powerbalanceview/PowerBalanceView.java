@@ -81,6 +81,10 @@ public class PowerBalanceView extends View {
         this.invalidate();
     }
 
+    public void setValues(double first, double second) {
+        setValue(first - second);
+    }
+
     public void setMaxValue(double maxValue) {
         this.maxValue = Math.abs(maxValue);
     }

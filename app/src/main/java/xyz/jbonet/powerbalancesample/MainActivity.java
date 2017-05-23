@@ -47,7 +47,7 @@ public class MainActivity extends AppCompatActivity {
         seekBar.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
             @Override
             public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
-                powerBalanceView2.setValue(50 - progress);
+                powerBalanceView2.setValues(50 , progress);
             }
 
             @Override
