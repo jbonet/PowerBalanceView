@@ -4,6 +4,7 @@ import android.content.Context;
 import android.content.res.TypedArray;
 import android.graphics.Canvas;
 import android.graphics.Color;
+import android.graphics.LinearGradient;
 import android.graphics.Paint;
 import android.util.AttributeSet;
 import android.view.View;
@@ -33,6 +34,9 @@ public class PowerBalanceView extends View {
     private int stepBarSize = 2;
     private int steps = 15;
 
+    // Gradients
+    private boolean gradientEnabled = false;
+
     public PowerBalanceView(Context context) {
         super(context);
     }
@@ -61,9 +65,11 @@ public class PowerBalanceView extends View {
             backgroundColor = a.getColor(R.styleable.PowerBalanceView_backgroundColor, Color.WHITE);
             axisSize = a.getInteger(R.styleable.PowerBalanceView_axisSize, 8);
             axisColor = a.getColor(R.styleable.PowerBalanceView_axisColor, Color.BLACK);
+            gradientEnabled = a.getBoolean(R.styleable.PowerBalanceView_gradient, false);
 
             steps = checkValue(steps);
-
+            stepBarSize = checkValue(stepBarSize);
+            axisSize = checkValue(axisSize);
         } finally {
             a.recycle();
         }
@@ -106,6 +112,7 @@ public class PowerBalanceView extends View {
         canvas.drawRect(left, top, right, canvasH, paint);
         paint.setColor(stepBarColor);
 
+
         // Draw Step Bars
         float stepSize = (canvasW / 2 - axisWidth / 2) / (float) (steps / 2);
         for (int i = 0; i < steps / 2; i++) {
@@ -119,10 +126,40 @@ public class PowerBalanceView extends View {
         // Draw Progress Bar
         paint.setColor(barColor);
         if (value > 0) {
-            canvas.drawRect(left - (canvasW / 2) * percent, 0, right - axisWidth, canvasH, paint);
+            if (percent > 0.75f && isGradientEnabled()) {
+                float greenLength = left - (canvasW / 2) * 0.75f;
+                canvas.drawRect(greenLength, 0, right - axisWidth, canvasH, paint);
+                paint.setColor(Color.YELLOW);
+                canvas.drawRect(left - (canvasW / 2) * percent, 0, greenLength, canvasH, paint);
+                if (percent > 0.9f) {
+                    paint.setColor(Color.RED);
+                    canvas.drawRect(left - (canvasW / 2) * percent, 0, left - (canvasW / 2) * 0.9f, canvasH, paint);
+                }
+            } else {
+                canvas.drawRect(left - (canvasW / 2) * percent, 0, right - axisWidth, canvasH, paint);
+            }
         } else {
             int left2 = canvasW / 2 + axisWidth / 2;
-            canvas.drawRect(left2, 0, left2 + (canvasW / 2) * percent, canvasH, paint);
+            if (percent > 0.75f && isGradientEnabled()) {
+                canvas.drawRect(left2, 0, left2 + (canvasW / 2) * 0.75f, canvasH, paint);
+                paint.setColor(Color.YELLOW);
+                canvas.drawRect(left2 + (canvasW / 2) * 0.75f , 0, left2 + (canvasW / 2) *  percent, canvasH, paint);
+                if (percent > 0.9f) {
+                    paint.setColor(Color.RED);
+                    canvas.drawRect(left2 + (canvasW / 2) * 0.9f , 0, left2 + (canvasW / 2) * percent, canvasH, paint);
+                }
+            } else {
+                canvas.drawRect(left2, 0, left2 + (canvasW / 2) * percent, canvasH, paint);
+            }
         }
+    }
+
+    private LinearGradient getGradient(float percent) {
+
+        return null;
+    }
+
+    private boolean isGradientEnabled() {
+        return gradientEnabled;
     }
 }

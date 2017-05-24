@@ -64,6 +64,10 @@ public class MainActivity extends AppCompatActivity {
         PowerBalanceView powerBalanceView4 = (PowerBalanceView) findViewById(R.id.powerBalanceView4);
         powerBalanceView4.setMaxValue(50);
         powerBalanceView4.setValue(25);
+
+        PowerBalanceView powerBalanceView5 = (PowerBalanceView) findViewById(R.id.powerBalanceView5);
+        powerBalanceView5.setMaxValue(100);
+        powerBalanceView5.setValue(-97);
     }
 
     @Override
