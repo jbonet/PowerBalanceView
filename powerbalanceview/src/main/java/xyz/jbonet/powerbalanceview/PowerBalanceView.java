@@ -64,7 +64,8 @@ public class PowerBalanceView extends View {
             axisColor = a.getColor(R.styleable.PowerBalanceView_axisColor, Color.BLACK);
 
             steps = checkValue(steps);
-
+            stepBarSize = checkValue(stepBarSize);
+            axisSize = checkValue(stepBarSize);
         } finally {
             a.recycle();
         }
