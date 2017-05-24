@@ -79,6 +79,19 @@
             android:layout_height="50dp"
             app:steps="25"/>
 
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="Gradient"
+            android:textColor="#FF000000" />
+
+        <xyz.jbonet.powerbalanceview.PowerBalanceView
+            android:id="@+id/powerBalanceView5"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            app:gradient="true" />
+
     </LinearLayout>
 
 </ScrollView>

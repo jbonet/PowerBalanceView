@@ -5,6 +5,7 @@
         <attr name="axisSize" format="integer" />
         <attr name="backgroundColor" format="color" />
         <attr name="barColor" format="color" />
+        <attr name="gradient" format="boolean" />
         <attr name="steps" format="integer" />
         <attr name="stepBarColor" format="color" />
         <attr name="stepBarSize" format="integer" />
